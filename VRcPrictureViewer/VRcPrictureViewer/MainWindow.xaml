@@ -36,7 +36,13 @@
                 <ColumnDefinition Width=".2*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Name="imageViewer"/>
+            <Image Grid.Column="0" Name="imageViewer">
+                <Image.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Delete" Icon="Delete" Click="DeletePic"/>
+                    </MenuFlyout>
+                </Image.ContextFlyout>
+            </Image>
 
             <ProgressRing x:Name="progressRingPic" IsActive="False" Width="40" Height="40"/>
 
