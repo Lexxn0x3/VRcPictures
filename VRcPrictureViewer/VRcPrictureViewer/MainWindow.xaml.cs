@@ -271,6 +271,70 @@ namespace VRcPrictureViewer
                 textPlayerIDs.Text = "N.A";
             }
         }
+
+        private async void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViewPics.SelectedItem == null)
+                return;
+
+            Image img = listViewPics.SelectedItem as Image;
+            StorageFile file = img.DataContext as StorageFile;
+
+            try
+            {
+                StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(file.Path.Replace(file.Name, ""));
+
+                FolderLauncherOptions options = new FolderLauncherOptions();
+                options.ItemsToSelect.Add(file);
+
+                await Launcher.LaunchFolderAsync(folder, options);
+            }
+            catch (Exception ex)
+            {
+                ContentDialog errorFileDialog = new ContentDialog
+                {
+                    Title = "An error has occurred!",
+                    Content = ex.Message,
+                    PrimaryButtonText = "Ok"
+                };
+
+                errorFileDialog.XamlRoot = this.Content.XamlRoot;
+                ContentDialogResult result = await errorFileDialog.ShowAsync(ContentDialogPlacement.Popup);
+            }
+        }
+
+        private async void MenuFlyoutItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (listViewPics.SelectedItem == null)
+                return;
+
+            Image img = listViewPics.SelectedItem as Image;
+            StorageFile file = img.DataContext as StorageFile;
+
+            try
+            {
+                await Launcher.LaunchFileAsync(file);
+
+                //StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(file.Path);
+
+                //FolderLauncherOptions options = new FolderLauncherOptions();
+                //options.ItemsToSelect.Add(file);
+
+                //await Launcher.LaunchFolderAsync(folder, options);
+            }
+            catch (Exception ex)
+            {
+                ContentDialog errorFileDialog = new ContentDialog
+                {
+                    Title = "An error has occurred!",
+                    Content = ex.Message,
+                    PrimaryButtonText = "Ok"
+                };
+
+                errorFileDialog.XamlRoot = this.Content.XamlRoot;
+                ContentDialogResult result = await errorFileDialog.ShowAsync(ContentDialogPlacement.Popup);
+            }
+        }
     }
 }
 

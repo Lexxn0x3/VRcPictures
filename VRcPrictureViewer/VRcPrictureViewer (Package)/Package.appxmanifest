@@ -9,7 +9,7 @@
   <Identity
     Name="2890RobinRosner.VrChatPictureViewer"
     Publisher="CN=B97543A7-1AA6-40BD-8635-82AA5DEA4D77"
-    Version="1.2.3.0" />
+    Version="1.2.9.0" />
 
   <Properties>
     <DisplayName>VrChat Picture Viewer</DisplayName>

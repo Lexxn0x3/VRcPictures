@@ -23,11 +23,11 @@
                     <StackPanel Background="Transparent" Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
-            <ListView.ContextFlyout>
+            <!--<ListView.ContextFlyout>
                 <MenuFlyout>
                     <MenuFlyoutItem Text="Delete" Icon="Delete" Click="DeletePic"/>
                 </MenuFlyout>
-            </ListView.ContextFlyout>
+            </ListView.ContextFlyout>-->
         </ListView>
 
         <Grid Background="#FF383838">
@@ -39,9 +39,13 @@
             <Image Grid.Column="0" Name="imageViewer">
                 <Image.ContextFlyout>
                     <MenuFlyout>
+                        <MenuFlyoutItem Text="Open Image" Icon="Pictures" Click="MenuFlyoutItem_Click_1"/>
+                        <MenuFlyoutItem Text="Open Location" Icon="Folder" Click="MenuFlyoutItem_Click"/>
+                        <MenuFlyoutSeparator/>
                         <MenuFlyoutItem Text="Delete" Icon="Delete" Click="DeletePic"/>
                     </MenuFlyout>
                 </Image.ContextFlyout>
+                
             </Image>
 
             <ProgressRing x:Name="progressRingPic" IsActive="False" Width="40" Height="40"/>
